@@ -64,31 +64,33 @@ const ChooseCards = ({ cards, onCardSelect, onStartCombat }) => {
 
   return (
     <div>
-    <h2>Choose Your Cards</h2>
-    <div className="d-flex p-5">
+      <div className='p-2'>
+      <h2>The Shop</h2>
+    </div>
+    <div className="d-flex p-5 justify-content-center">
       {cards.map((card, index) => (
-        <div key={index} onClick={() => handleCardSelect(card)} className="card" style={{width: 240 + 'px', marginRight: 1 + 'rem'}} >
+        <div key={index} onClick={() => handleCardSelect(card)} className="card" style={{width: 12 + 'rem', marginRight: 1 + 'rem'}} >
         <div className="card-body">
         <h3>{card.name}</h3>
           <p>Cost: {card.cost}</p>
           <p>Attack: {card.attack}</p>
           <p>Life: {card.life}</p>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p className="card-text">Some quick example text.</p>
         </div>
       </div>
       ))}
     </div>
-    <div>
+    <div >
       <h3>Your Cards:</h3>
-      <div className="d-flex p-5">
+      <div className="d-flex p-5 justify-content-center">
       {selectedCards.map((card, index) => (
-        <div key={index} className="card" style={{width: 240 + 'px', marginRight: 1 + 'rem'}}>
+        <div key={index} className="card" style={{width: 12 + 'rem', marginRight: 1 + 'rem'}}>
            <div className="card-body">
         <h3>{card.name}</h3>
           <p>Cost: {card.cost}</p>
           <p>Attack: {card.attack}</p>
           <p>Life: {card.life}</p>
-          <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <p className="card-text">Some quick example text .</p>
           <button type="button" className="btn btn-danger" onClick={() => handleDeleteCard(index)}>Delete</button>
         </div>
         </div>
