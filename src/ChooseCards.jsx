@@ -5,7 +5,7 @@ import heart from './img/heart.png';
 import coin from './img/coin.png';
 
 
-const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, playerDeck, round }) => {
+const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, playerDeck, round, shop }) => {
   const [selectedCards, setSelectedCards] = useState(playerDeck); 
   const [shopCards, setShopCards] = useState(generateRandomDeck(cards, 6));
   const [playerGoldInComponent, setPlayerGoldInComponent] = useState(playerGold);
@@ -25,7 +25,7 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
     const updatedCards = [...selectedCards];
     const deletedCard = updatedCards.splice(index, 1)[0];
     setSelectedCards(updatedCards);
-
+    shop(updatedCards)
     setPlayerGoldInComponent(playerGoldInComponent + deletedCard.cost);
     setPlayerGold(playerGoldInComponent + deletedCard.cost);
   };

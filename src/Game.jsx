@@ -39,7 +39,7 @@ const Game = () => {
     switch (gameState) {
       case 'chooseCards':
         return (
-          <ChooseCards cards={cards} round={round} playerDeck={playerDeck} onCardSelect={handleCardSelection} onStartCombat={startCombat} playerGold={playerGold} setPlayerGold={setPlayerGold}/>
+          <ChooseCards cards={cards} round={round} playerDeck={playerDeck} shop={handleUserDeck} onCardSelect={handleCardSelection} onStartCombat={startCombat} playerGold={playerGold} setPlayerGold={setPlayerGold}/>
         );
       case 'combat':
         return <Combat  updateRound={handleRound}  updateGold={handleGold}  playerDeck={playerDeck} round={round} enemyDeck={enemyDeck} playerGold={playerGold} shop={handleUserDeck}/>;
