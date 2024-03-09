@@ -4,13 +4,48 @@
 .App {
   text-align: center;
   width:80%;
-  
   background-color: brown;
 }
 
 body, html {
+  background-color: #fef6e4!important;
+}
+
+h2 {
+  font-family: 'Rubik Broken Fax';
+  font-size: 40px;
+  color: #001858;
   margin: 0;
   padding: 0;
-  height: 100%;
-  background: #F7F7F7;
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+h3 {
+  color: #001858;
+  font-family: "Vina Sans";
+  font-size: 1rem!important;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.blue {
+  background-color: #8bd3dd;
+}
+.bege {
+  background-color: #f3d2c1;
+}
+
+.red {
+  background-color: #ef4565;
+}
+
+.green {
+  background-color: #c3f0ca;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color: #f582ae !important;
+  border-color: #f582ae !important;
 }

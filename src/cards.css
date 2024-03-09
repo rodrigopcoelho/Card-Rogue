@@ -1,8 +1,11 @@
 .card {
-    background: #F7F7F7;
+    background-color: #fef6e4;
+    
+    
   }
+
 .cardname{
-    color: #1F1A17;
+    color: #001858;
     text-align: center;
     font-family: "Vina Sans";
     font-size: 25px;
@@ -18,13 +21,12 @@
   }
 
 .cardability{
-    color: #1F1A17;
+    color: #172c66;
     text-align: center;
     font-family: Roboto;
     font-size: 10px;
     font-style: normal;
     font-weight: 500;
-    line-height: normal;
     display: flex;
     width: 144px;
     height: 21px;
@@ -36,3 +38,4 @@
     height: 24px;
     flex-shrink: 0;
   }
+
