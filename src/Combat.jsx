@@ -119,13 +119,12 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
           </div>
         </div>
       ))}</div>
-      <div className='d-flex justify-content-center red'> 
-      {winner && <h2 className='pt-2'>{winner}</h2>}
-      
-      </div>
-      <div className={`d-flex justify-content-center ${winner === 'User wins' ? 'green' : 'red'}`}> 
+<div className={`d-flex justify-content-center ${winner === 'User wins' ? 'green' : 'red'}`}> 
   {winner && <h2 className='pt-2'>{winner}</h2>}
 </div>
+      <div className='d-flex justify-content-center mt-3'> 
+      <button type="button" class="btn btn-secondary " onClick={handleshop}>Next Round</button>
+      </div>
     </div>
   );
 };
