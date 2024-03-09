@@ -36,14 +36,15 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
 
   return (
     <div>
-      <div className='d-flex justify-content-center blue py-2'>
-        <h2>The Shop</h2>
-        </div>
-      
-        <div className='d-flex justify-content-center bege pt-3'>
+        <div className='d-flex justify-content-center blue pt-3'>
         <div className='d-flex me-4'><h3 className='me-1'>Player's Gold: </h3><p>{playerGoldInComponent}</p></div>
         <div className='d-flex'><h3 className='me-1'>Player's Round: </h3><p>{playerRound}</p></div>
         </div>
+      <div className='d-flex justify-content-center bege py-2'>
+        <h2>The Shop</h2>
+        </div>
+      
+
      
       <div className="d-flex p-5 justify-content-center">
         {shopCards.map((card, index) => (

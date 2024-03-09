@@ -82,6 +82,10 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
 
   return (
     <div>
+       <div className='d-flex justify-content-center blue pt-3'>
+        <div className='d-flex me-4'><h3 className='me-1'>Player's Gold: </h3><p>{playerGoldInComponent}</p></div>
+        <div className='d-flex'><h3 className='me-1'>Player's Round: </h3><p>{playerRound}</p></div>
+        </div>
       <div className='d-flex justify-content-center red py-2'>
         <h2>The Enemy</h2>
         </div>
