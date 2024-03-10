@@ -6,13 +6,7 @@ import Game from './Game';
 import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
-  return (
-    
-    <div className=''>
-      <Game />
-    </div>
-  
-  );
+  return (<Game />);
 }
 
 export default App;

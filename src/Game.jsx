@@ -3,6 +3,7 @@ import ChooseCards from './ChooseCards';
 import Combat from './Combat';
 import cards, { generateRandomDeck } from './cards';
 
+
 const Game = () => {
   const [life, setLife] = useState(100); 
   const [playerDeck, setPlayerDeck] = useState([]);

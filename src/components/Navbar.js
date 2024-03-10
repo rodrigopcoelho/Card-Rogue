@@ -11,7 +11,7 @@ const Navbar = ({ life , gold, round, stage, text}) => {
             </div>
             <div className='goldsquare yellow d-flex justify-content-center align-items-center'> <h1 className='color-b user-gold'>{gold}</h1></div>
 
-            <div className='pink bigsquare d-flex justify-content-center align-items-center'><h1 className='title'>{text}</h1></div>
+            <div className='pink bigsquare d-flex justify-content-center align-items-center'><h1 className='title '>{text}</h1></div>
             <div className='blue bluesquare divStage'>
                 <h1 className='user-stage'>Stage {stage}</h1>
                 <h1 className='user-stage'>Round {round}</h1>

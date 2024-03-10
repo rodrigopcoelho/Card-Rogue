@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .App {
   text-align: center;
@@ -9,6 +10,7 @@
 
 body, html {
   background-color: #FAEEE7!important;
+  overflow: hidden;
 }
 
 
@@ -20,4 +22,31 @@ h3 {
   font-size: 1rem!important;
   font-style: normal;
   font-weight: 400;
+}
+
+
+.sell-square{
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  bottom: 0;
+  background-color: #C3F0CA;
+}
+
+.sell-title{
+  color: #33272A;
+  text-align: center;
+  font-family: "Vina Sans";
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.fight-square{
+  width: 10rem;
+  height: 10rem;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  background-color: #F25042;
 }

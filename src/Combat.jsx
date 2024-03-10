@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import sword from './img/sword.png';
 import heart from './img/heart.png';
 import Navbar from './components/Navbar';
+import Cards from './components/Cards';
 
 const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold ,handleLife, life}) => {
   const [winner, setWinner] = useState(null);
@@ -85,33 +86,11 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
        <Navbar life={life} gold={playerGoldInComponent} stage={1} round={playerRound} text={"COMBAT"}></Navbar>
       <div className="d-flex p-5 justify-content-center">
       {enemyDeckCopy.map((card, index) => (
-        <div key={index}  className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' , backgroundColor: card.life === 0 && '#ef4565' }}>
-          <img className='splashart card-img-top' src={card.art} alt={card.name} />
-          <div className="card-body">
-            <h3 className='cardname'>{card.name}</h3>
-            <p className="cardability">{card.ability}</p>
-            <div className='d-flex justify-content-between'>
-            <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-            <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-            </div>
-            
-          </div>
-        </div>
+         <Cards key={index}  attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art} />
       ))}</div>
       <div className="d-flex p-5 justify-content-center">
       {userDeckCopy.map((card, index) => (
-        <div key={index}  className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' , backgroundColor: card.life === 0 && '#ef4565' }}>
-          <img className='splashart card-img-top' src={card.art} alt={card.name} />
-          <div className="card-body">
-            <h3 className='cardname'>{card.name}</h3>
-            <p className="cardability">{card.ability}</p>
-            <div className='d-flex justify-content-between'>
-            <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-            <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-            </div>
-            
-          </div>
-        </div>
+        <Cards key={index}  attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art} />
       ))}</div>
 <div className={`d-flex justify-content-center ${winner === 'User wins' ? 'green' : 'red'}`}> 
   {winner && <h2 className='pt-2'>{winner}</h2>}

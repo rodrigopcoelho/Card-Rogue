@@ -21,12 +21,13 @@
 
 .title{
     color: #33272A;
-text-align: center;
-font-family: "Vina Sans";
-font-size: 112px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+    text-align: center;
+    font-family: "Vina Sans";
+    font-size: 112px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-right: 15rem;
    
     
 }
