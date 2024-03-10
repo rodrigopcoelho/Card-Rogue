@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import cards, { generateRandomDeck } from './cards';
 import Navbar from './components/Navbar';
+import Cards from './components/Cards';
 
 
 
@@ -36,6 +37,18 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
   return (
     <div>
       <Navbar life={life} gold={playerGoldInComponent} stage={1} round={playerRound} text={"SHOP"}></Navbar>
+      <div className="d-flex p-5 justify-content-center">
+        {selectedCards.map((card, index) => (
+          <Cards attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art}/>
+        ))}
+      </div>
+
+      <div className="d-flex p-5 justify-content-center">
+        {shopCards.map((card, index) => (
+          <Cards attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art}/>
+        ))}
+      </div>
+     
     </div>
   );
 };

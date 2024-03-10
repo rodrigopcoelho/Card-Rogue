@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import sword from './img/sword.png';
-import heart from './img/heart.png';©
+import heart from './img/heart.png';
 import Navbar from './components/Navbar';
 
 const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold ,handleLife, life}) => {
