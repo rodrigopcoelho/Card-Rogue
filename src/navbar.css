@@ -1,0 +1,87 @@
+.user-life{
+    text-align: center;
+    font-family: "Vina Sans";
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 99!important;
+    position: relative;
+}
+.user-gold{
+    text-align: center;
+    font-family: "Vina Sans";
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    
+}
+
+.title{
+    color: #33272A;
+text-align: center;
+font-family: "Vina Sans";
+font-size: 112px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+   
+    
+}
+
+.color-b{
+   color: #33272A;
+}
+.color-p{
+    color: #FFC6C7;
+ }
+
+.normalsquare{
+width: 8rem; 
+height: 7.3rem; 
+}
+.bluesquare{
+
+    width: 10rem; 
+    height: 7.3rem; 
+}
+
+.goldsquare{
+    width: 9rem; 
+    height: 7.3rem; 
+}
+
+.bigsquare{
+    width: 60rem; 
+    height: 7.3rem; 
+}
+
+.user-stage{
+    color: #33272A;
+    text-align: center;
+    font-family: "Vina Sans";
+    font-size: 3rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0;
+}
+
+.life-square{
+    position: relative; 
+}
+.blood-square{
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #F13929;
+    position: absolute;
+   
+}
+
+.user-icon{
+    width: 4rem;
+    height: 4rem;
+}

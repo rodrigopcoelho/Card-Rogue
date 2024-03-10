@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import sword from './img/sword.png';
-import heart from './img/heart.png';
-import coin from './img/coin.png';
+import heart from './img/heart.png';©
+import Navbar from './components/Navbar';
 
-const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold }) => {
+const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold ,handleLife, life}) => {
   const [winner, setWinner] = useState(null);
   const [playerGoldInComponent, setPlayerGoldInComponent] = useState(playerGold);
   const [userDeckCopy, setUserDeckCopy] = useState(JSON.parse(JSON.stringify(playerDeck)));
@@ -82,13 +82,7 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
 
   return (
     <div>
-       <div className='d-flex justify-content-center blue pt-3'>
-        <div className='d-flex me-4'><h3 className='me-1'>Player's Gold: </h3><p>{playerGoldInComponent}</p></div>
-        <div className='d-flex'><h3 className='me-1'>Player's Round: </h3><p>{playerRound}</p></div>
-        </div>
-      <div className='d-flex justify-content-center red py-2'>
-        <h2>The Enemy</h2>
-        </div>
+       <Navbar life={life} gold={playerGoldInComponent} stage={1} round={playerRound} text={"COMBAT"}></Navbar>
       <div className="d-flex p-5 justify-content-center">
       {enemyDeckCopy.map((card, index) => (
         <div key={index}  className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' , backgroundColor: card.life === 0 && '#ef4565' }}>

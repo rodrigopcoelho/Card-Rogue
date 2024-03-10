@@ -8,8 +8,10 @@
 }
 
 body, html {
-  background-color: #fef6e4!important;
+  background-color: #FAEEE7!important;
 }
+
+
 
 h2 {
   font-family: 'Rubik Broken Fax';
@@ -28,24 +30,4 @@ h3 {
   font-size: 1rem!important;
   font-style: normal;
   font-weight: 400;
-}
-
-.blue {
-  background-color: #8bd3dd;
-}
-.bege {
-  background-color: #f3d2c1;
-}
-
-.red {
-  background-color: #ef4565;
-}
-
-.green {
-  background-color: #c3f0ca;
-}
-
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #f582ae !important;
-  border-color: #f582ae !important;
 }
