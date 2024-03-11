@@ -1,4 +1,5 @@
 import './App.css';
+import './animation.css';
 import './cards.css';
 import './navbar.css';
 import './colors.css';

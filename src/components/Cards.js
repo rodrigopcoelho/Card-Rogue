@@ -10,10 +10,11 @@ const Cards = ({
   index,
   draggable,
   onDragStart,
+  animationClass,
 }) => {
   return (
     <div
-      className="big-card"
+      className={`big-card ${animationClass}`}
       onClick={() => onClick && onClick(index)}
       style={{
         backgroundImage: `url(${splashArt})`,

@@ -26,8 +26,8 @@ h3 {
 
 
 .sell-square{
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   position: absolute;
   bottom: 0;
   background-color: #C3F0CA;
@@ -43,10 +43,29 @@ h3 {
   line-height: normal;
 }
 .fight-square{
-  width: 10rem;
-  height: 10rem;
+  width: 9rem;
+  height: 9rem;
   position: absolute;
   bottom: 0;
   right:0;
   background-color: #F25042;
+}
+
+.result-square{
+
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 10rem;
+  right:0;
+ 
+
+}
+.btn-square{
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  background: #FF8BA7;
 }

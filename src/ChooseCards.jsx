@@ -57,13 +57,13 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
     <div>
       <Navbar life={life} gold={playerGoldInComponent} stage={1} round={playerRound} text={"SHOP"}></Navbar>
 
-      <div className="d-flex p-5 justify-content-center">
+      <div className="d-flex mt-5 ms-3 justify-content-center">
         {shopCards.map((card, index) => (
           <Cards key={index} onClick={() => handleCardSelect(card)} attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art} />
         ))}
       </div>
 
-      <div className="d-flex p-5 justify-content-center">
+      <div className="d-flex p-5 justify-content-center ms-3">
         {selectedCards.map((card, index) => (
           <Cards
             draggable={true}
@@ -86,7 +86,7 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
         <h1 className='align-self-center sell-title'>SELL</h1>
       </div>
       <div className='fight-square d-flex justify-content-center' onClick={handleStartCombat}>
-        <h1 className='align-self-center sell-title'>FIGHT</h1>
+        <h1 className='align-self-center sell-title'>GO</h1>
       </div>
     </div>
   );
