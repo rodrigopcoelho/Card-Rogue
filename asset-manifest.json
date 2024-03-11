@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/card-rogue/static/css/main.0284a0bf.css",
-    "main.js": "/card-rogue/static/js/main.915a3637.js",
+    "main.js": "/card-rogue/static/js/main.45719b88.js",
     "static/js/453.e6beed5a.chunk.js": "/card-rogue/static/js/453.e6beed5a.chunk.js",
     "index.html": "/card-rogue/index.html",
     "main.0284a0bf.css.map": "/card-rogue/static/css/main.0284a0bf.css.map",
-    "main.915a3637.js.map": "/card-rogue/static/js/main.915a3637.js.map",
+    "main.45719b88.js.map": "/card-rogue/static/js/main.45719b88.js.map",
     "453.e6beed5a.chunk.js.map": "/card-rogue/static/js/453.e6beed5a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0284a0bf.css",
-    "static/js/main.915a3637.js"
+    "static/js/main.45719b88.js"
   ]
 }
