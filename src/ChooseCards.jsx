@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import cards, { generateRandomDeck } from './cards';
-import sword from './img/sword.png';
-import heart from './img/heart.png';
-import coin from './img/coin.png';
+import Navbar from './components/Navbar';
+import Cards from './components/Cards';
 
-
-const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, playerDeck, round, shop }) => {
-  const [selectedCards, setSelectedCards] = useState(playerDeck); 
+const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, playerDeck, round, shop, life }) => {
+  const [selectedCards, setSelectedCards] = useState(playerDeck);
   const [shopCards, setShopCards] = useState(generateRandomDeck(cards, 6));
   const [playerGoldInComponent, setPlayerGoldInComponent] = useState(playerGold);
   const [playerRound, setPlayerRound] = useState(round);
+  const [isDragging, setIsDragging] = useState(false);
+  const [currentCard, setCurrentCard] = useState(null);
 
   const handleCardSelect = (card) => {
     if (selectedCards.length < 6 && playerGoldInComponent >= card.cost) {
@@ -25,7 +25,7 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
     const updatedCards = [...selectedCards];
     const deletedCard = updatedCards.splice(index, 1)[0];
     setSelectedCards(updatedCards);
-    shop(updatedCards)
+    shop(updatedCards);
     setPlayerGoldInComponent(playerGoldInComponent + deletedCard.cost);
     setPlayerGold(playerGoldInComponent + deletedCard.cost);
   };
@@ -34,59 +34,59 @@ const ChooseCards = ({ onCardSelect, onStartCombat, playerGold, setPlayerGold, p
     onStartCombat();
   };
 
+  const handleDragStart = (e, card) => {
+    setIsDragging(true);
+    setCurrentCard(card);
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/plain', null);
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    setIsDragging(false);
+    setCurrentCard(null);
+    handleDeleteCard();
+  };
+
   return (
     <div>
-        <div className='d-flex justify-content-center blue pt-3'>
-        <div className='d-flex me-4'><h3 className='me-1'>Player's Gold: </h3><p>{playerGoldInComponent}</p></div>
-        <div className='d-flex'><h3 className='me-1'>Player's Round: </h3><p>{playerRound}</p></div>
-        </div>
-      <div className='d-flex justify-content-center bege py-2'>
-        <h2>The Shop</h2>
-        </div>
-      
+      <Navbar life={life} gold={playerGoldInComponent} stage={1} round={playerRound} text={"SHOP"}></Navbar>
 
-     
-      <div className="d-flex p-5 justify-content-center">
+      <div className="d-flex mt-5 ms-3 justify-content-center">
         {shopCards.map((card, index) => (
-          <div key={index} onClick={() => handleCardSelect(card)} className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' }}>
-            <img className='splashart card-img-top' src={card.art} alt={card.name} />
-            <div className="card-body">
-              <h3 className='cardname'>{card.name}</h3>
-              <p className="cardability">{card.ability}</p>
-              <div className='d-flex justify-content-between'>
-              <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-              <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-              <div><img className='icon' src={coin} alt="coin "/> {card.cost}</div>
-              </div>
-              
-            </div>
-          </div>
+          <Cards key={index} onClick={() => handleCardSelect(card)} attk={card.attack} name={card.name} hp={card.life} ability={card.ability} splashArt={card.art} />
         ))}
       </div>
-      <div>
-      <div className='d-flex justify-content-center'>
-        <h2>Your Cards</h2>
-        </div>
-        <div className="d-flex p-5 justify-content-center">
-          {selectedCards.map((card, index) => (
-            <div key={index} className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' }}>
-            <img className='splashart card-img-top' src={card.art} alt={card.name} />
-            <div className="card-body">
-              <h3 className='cardname'>{card.name}</h3>
-              <p className="cardability">{card.ability}</p>
-              <div className='d-flex justify-content-between'>
-              <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-              <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-              
-              <div><button type="button" className="btn btn-success btn-sm"onClick={() => handleDeleteCard(index)}>Sell </button></div>
-              </div>
-            </div>
-          </div>
-          )).slice(0, 6)}
-        </div>
+
+      <div className="d-flex p-5 justify-content-center ms-3">
+        {selectedCards.map((card, index) => (
+          <Cards
+            draggable={true}
+            key={index}
+            attk={card.attack}
+            name={card.name}
+            hp={card.life}
+            ability={card.ability}
+            splashArt={card.art}
+            index={index}
+            onDragStart={(e) => handleDragStart(e, card)}
+          />
+        ))}
       </div>
-      <div className='d-flex p-3 justify-content-center'>
-        <button type="button" className="btn btn-primary btn-lg" onClick={handleStartCombat}>Start Combat </button>
+      <div
+        className='sell-square d-flex justify-content-center'
+        onDragOver={handleDragOver}
+        onDrop={handleDrop}
+      >
+        <h1 className='align-self-center sell-title'>SELL</h1>
+      </div>
+      <div className='fight-square d-flex justify-content-center' onClick={handleStartCombat}>
+        <h1 className='align-self-center sell-title'>GO</h1>
       </div>
     </div>
   );

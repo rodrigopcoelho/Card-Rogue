@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import sword from './img/sword.png';
-import heart from './img/heart.png';
-import coin from './img/coin.png';
+import Navbar from './components/Navbar';
+import Cards from './components/Cards';
 
-const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold }) => {
+const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, updateGold, handleLife, life }) => {
   const [winner, setWinner] = useState(null);
+  const [playerLife, setPlayerLife] = useState(life);
   const [playerGoldInComponent, setPlayerGoldInComponent] = useState(playerGold);
   const [userDeckCopy, setUserDeckCopy] = useState(JSON.parse(JSON.stringify(playerDeck)));
   const [enemyDeckCopy, setEnemyDeckCopy] = useState(JSON.parse(JSON.stringify(enemyDeck)));
   const [playerRound, setPlayerRound] = useState(round);
+  const [animatedCards, setAnimatedCards] = useState([]);
 
   const handleshop = () => {
     let newRound = playerRound + 1;
     setPlayerRound(newRound);
-    updateRound(newRound); 
+    updateRound(newRound);
     shop(playerDeck);
   };
 
@@ -46,6 +47,14 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
         } else {
           enemyCard.life = enemyCardLifeAfterAttack;
         }
+
+        // Trigger card animations
+        const animatedCard = {
+          userCard,
+          enemyCard,
+          userWins: userCardLifeAfterAttack > 0 && enemyCardLifeAfterAttack <= 0,
+        };
+        setAnimatedCards((prevAnimatedCards) => [...prevAnimatedCards, animatedCard]);
       }
 
       setUserDeckCopy(userDeckCopy);
@@ -54,76 +63,106 @@ const Combat = ({ playerDeck, enemyDeck, shop, playerGold, round, updateRound, u
       // Determine the winner
       let result;
       if (userIndex >= userDeckCopy.length) {
-        result = 'Enemy wins';
+        result = 'LOST';
       } else if (enemyIndex >= enemyDeckCopy.length) {
-        result = 'User wins';
+        result = 'WIN';
       } else {
-        result = 'Draw';
+        result = 'DRAW';
       }
 
       // Update gold based on the result
-      if (result === 'User wins') {
+      if (result === 'WIN') {
         let moregold = playerGoldInComponent + 3;
-        updateGold(moregold); 
-      } else if (result === 'Draw') {
+        updateGold(moregold);
+      } else if (result === 'DRAW') {
         let moregold = playerGoldInComponent + 2;
-        updateGold(moregold); 
+        updateGold(moregold);
       } else {
         let moregold = playerGoldInComponent + 1;
-        updateGold(moregold); 
+        updateGold(moregold);
       }
-      
+
+      // Deduct life points if the user lost
+      if (result === 'LOST') {
+        let enemyCardsAlive = enemyDeckCopy.filter((card) => card.life > 0).length;
+        let lifeDeduction = calculateLifeDeduction(enemyCardsAlive, playerRound);
+        let newLife = playerLife - lifeDeduction;
+        setPlayerLife(newLife);
+        handleLife(newLife);
+      }
+
       return result;
-    }
+    };
 
     setWinner(battle(playerDeck, enemyDeck));
   }, [playerDeck, enemyDeck]);
 
+  const calculateLifeDeduction = (enemyCardsAlive, round) => {
+    let baseDeduction = enemyCardsAlive * 2;
+    let stageDeduction = 0;
+
+    if (round >= 2) {
+      stageDeduction = 3;
+    }
+    if (round >= 4) {
+      stageDeduction = 5;
+    }
+    if (round >= 6) {
+      stageDeduction = 9;
+    }
+
+    return baseDeduction + stageDeduction;
+  };
 
   return (
     <div>
-       <div className='d-flex justify-content-center blue pt-3'>
-        <div className='d-flex me-4'><h3 className='me-1'>Player's Gold: </h3><p>{playerGoldInComponent}</p></div>
-        <div className='d-flex'><h3 className='me-1'>Player's Round: </h3><p>{playerRound}</p></div>
-        </div>
-      <div className='d-flex justify-content-center red py-2'>
-        <h2>The Enemy</h2>
-        </div>
-      <div className="d-flex p-5 justify-content-center">
-      {enemyDeckCopy.map((card, index) => (
-        <div key={index}  className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' , backgroundColor: card.life === 0 && '#ef4565' }}>
-          <img className='splashart card-img-top' src={card.art} alt={card.name} />
-          <div className="card-body">
-            <h3 className='cardname'>{card.name}</h3>
-            <p className="cardability">{card.ability}</p>
-            <div className='d-flex justify-content-between'>
-            <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-            <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-            </div>
-            
-          </div>
-        </div>
-      ))}</div>
-      <div className="d-flex p-5 justify-content-center">
-      {userDeckCopy.map((card, index) => (
-        <div key={index}  className="card" style={{ width: 12 + 'rem', marginRight: 1 + 'rem' , backgroundColor: card.life === 0 && '#ef4565' }}>
-          <img className='splashart card-img-top' src={card.art} alt={card.name} />
-          <div className="card-body">
-            <h3 className='cardname'>{card.name}</h3>
-            <p className="cardability">{card.ability}</p>
-            <div className='d-flex justify-content-between'>
-            <div><img className='icon' src={sword} alt="attack "/> {card.attack}</div>
-            <div><img className='icon' src={heart} alt="life "/> {card.life}</div>
-            </div>
-            
-          </div>
-        </div>
-      ))}</div>
-<div className={`d-flex justify-content-center ${winner === 'User wins' ? 'green' : 'red'}`}> 
-  {winner && <h2 className='pt-2'>{winner}</h2>}
-</div>
-      <div className='d-flex justify-content-center mt-3'> 
-      <button type="button" class="btn btn-secondary " onClick={handleshop}>Next Round</button>
+      <Navbar life={playerLife} gold={playerGoldInComponent} stage={1} round={playerRound} text={"COMBAT"}></Navbar>
+      <div className="d-flex p-5 justify-content-start">
+        {enemyDeckCopy.map((card, index) => (
+          <Cards
+            key={index}
+            attk={card.attack}
+            name={card.name}
+            hp={card.life}
+            ability={card.ability}
+            splashArt={card.art}
+            animationClass={
+              animatedCards.find((animatedCard) => animatedCard.enemyCard === card)
+                ? animatedCards.find((animatedCard) => animatedCard.enemyCard === card).userWins
+                  ? 'lose-animation'
+                  : 'attack-animation'
+                : ''
+            }
+          />
+        ))}
+      </div>
+      <div className="d-flex p-5 justify-content-start">
+        {userDeckCopy.map((card, index) => (
+          <Cards
+            key={index}
+            attk={card.attack}
+            name={card.name}
+            hp={card.life}
+            ability={card.ability}
+            splashArt={card.art}
+            animationClass={
+              animatedCards.find((animatedCard) => animatedCard.userCard === card)
+                ? animatedCards.find((animatedCard) => animatedCard.userCard === card).userWins
+                  ? 'win-animation'
+                  : 'attack-animation'
+                : ''
+            }
+          />
+        ))}
+
+      </div>
+
+      <div className={`d-flex justify-content-center result-square ${winner === 'WIN' ? 'green' : 'red'}`}>
+        {winner && <h2 className='align-self-center sell-title'>{winner}</h2>}
+      </div>
+
+      <div className='d-flex justify-content-center btn-square'>
+        <h2 className="align-self-center sell-title" onClick={handleshop}>Next</h2>
       </div>
     </div>
   );

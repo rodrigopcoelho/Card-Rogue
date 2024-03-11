@@ -1,41 +1,55 @@
-.card {
-    background-color: #fef6e4;
-    
-    
-  }
+.big-card{
+  width: 11rem; /* 240px / 16px = 15rem */
+  height: 15rem; /* 336px / 16px = 21rem */
+  border: solid;
+  border-color: grey;
+  margin-right: 1rem;
+  position: relative;
+}
 
-.cardname{
-    color: #001858;
-    text-align: center;
-    font-family: "Vina Sans";
-    font-size: 25px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-  }
+.card-header{
+  width: 100%;
+  height: 40px;
+  background-color: #FAEEE7!important;
+  border-bottom: solid !important;
+}
 
-.splashart{
-    width: 100%;
-    height: 149px;
-    background-size: auto;
-  }
+.hp-square{
+  width: 40px;
+  height: 40px;
+  background-color:#F13929;
+  border-bottom: solid !important;
+}
 
-.cardability{
-    color: #172c66;
-    text-align: center;
-    font-family: Roboto;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 500;
-    display: flex;
-    width: 144px;
-    height: 21px;
-    justify-content: center;
-  }
+.attk-square{
+  width: 40px;
+  height: 40px;
+  background-color:#42B3F2;
+  border-bottom: solid !important;
+}
 
-  .icon{
-    width: 24px;
-    height: 24px;
-    flex-shrink: 0;
-  }
+.name-card{
+  color: #33272A;
+  text-align: center;
+  font-family: "Vina Sans";
+  font-size: 1.2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
 
+.ability-text{
+  position: absolute;
+  bottom: 0;
+  border-top: solid ;
+  width: 100%;
+  background-color: #FAEEE7!important;
+}
+
+.text-p{
+  color: #594A4E;
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}

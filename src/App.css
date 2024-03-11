@@ -1,5 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Broken+Fax&family=Vina+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 .App {
   text-align: center;
@@ -8,18 +9,11 @@
 }
 
 body, html {
-  background-color: #fef6e4!important;
+  background-color: #FAEEE7!important;
+  overflow: hidden;
 }
 
-h2 {
-  font-family: 'Rubik Broken Fax';
-  font-size: 40px;
-  color: #001858;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  margin-top: 20px;
-}
+
 
 
 h3 {
@@ -30,22 +24,48 @@ h3 {
   font-weight: 400;
 }
 
-.blue {
-  background-color: #8bd3dd;
-}
-.bege {
-  background-color: #f3d2c1;
+
+.sell-square{
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 0;
+  background-color: #C3F0CA;
 }
 
-.red {
-  background-color: #ef4565;
+.sell-title{
+  color: #33272A;
+  text-align: center;
+  font-family: "Vina Sans";
+  font-size: 80px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.fight-square{
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  background-color: #F25042;
 }
 
-.green {
-  background-color: #c3f0ca;
-}
+.result-square{
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-  background-color: #f582ae !important;
-  border-color: #f582ae !important;
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 10rem;
+  right:0;
+ 
+
+}
+.btn-square{
+  width: 9rem;
+  height: 9rem;
+  position: absolute;
+  bottom: 0;
+  right:0;
+  background: #FF8BA7;
 }

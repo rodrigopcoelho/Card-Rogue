@@ -1,0 +1,35 @@
+
+.blue {
+    background-color: #42B3F2;
+  }
+  .bege {
+    background-color: #FAEEE7;
+  }
+  
+  .red {
+    background-color: #F25042;
+  }
+  .pink {
+    background-color: #FFC6C7;
+  }
+  .green {
+    background-color: #C3F0CA;
+  }
+
+ 
+  
+  
+  .yellow {
+    background-color: #F2E042;
+  }
+  .dark-brown {
+    background-color: #33272A;
+  }
+  .blood {
+    background-color: #F13929;
+  }
+  
+  .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #f582ae !important;
+    border-color: #f582ae !important;
+  }

@@ -1,0 +1,46 @@
+/* Animation styles */
+.attack-animation {
+    animation: attack 1s ease-in-out;
+  }
+  
+  .win-animation {
+    animation: win 1s ease-in-out forwards;
+  }
+  
+  .lose-animation {
+    animation: lose 1s ease-in-out forwards;
+  }
+  
+  @keyframes attack {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-100px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes win {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes lose {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+  }
